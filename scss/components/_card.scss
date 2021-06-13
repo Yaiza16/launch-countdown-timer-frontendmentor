@@ -2,16 +2,40 @@
 @use  '../utilities/functions' as f;
 
 .card{
-    background-color: red;
-    width: f.toRem(120);
+    perspective: f.toRem(50);
+
+    width: f.toRem(130);
     height: f.toRem(120);
     position: relative;
     color: v.$numbers-color;
-    font-size: 5rem;
+    font-size: 4.2rem;
     font-weight: 700;
+    border-radius: .5rem;
 
-    perspective: f.toRem(500);
-    // transform-style: preserve-3d;
+    box-shadow: 0 .5rem v.$background-top-site;
+
+    // &::before{
+    //     content: "";
+    //     position: absolute;
+    //     width: .4rem;
+    //     height: .8rem;
+    //     background-color: black;
+    //     border-radius: 0 .4rem .4rem 0;
+    //     top: calc(50% - .4rem);
+    //     z-index: 20;
+    // }
+
+    // &::after{
+    //     content: "";
+    //     position: absolute;
+    //     width: .4rem;
+    //     height: .8rem;
+    //     background-color: black;
+    //     border-radius: .4rem 0 0 .4rem;
+    //     top: calc(50% - .4rem);
+    //     right: 0;
+    //     z-index: 10;
+    // }
 }
 
 .part-card{
@@ -19,7 +43,21 @@
     width: 100%;
     height: 50%;
     line-height: 0;
+    perspective: 500px;
     
+
+    &--static::before,
+    &--dynamic::after{
+        background: radial-gradient(0.8rem circle at 0 100%, #141419 50%, transparent 50%), radial-gradient(0.8rem circle at 100% 100%, #141419 50%, transparent 50.2%);
+        border-bottom: 1px solid v.$background-top-site;
+        border-radius: .5rem .5rem 0 0;
+    }
+
+    &--static::after,
+    &--dynamic::before{
+        background: radial-gradient(0.8rem circle at 0 0, #141419 50%, transparent 50%), radial-gradient(0.8rem circle at 100% 0, #141419 50%, transparent 50%);
+        border-radius: 0 0 .5rem .5rem;
+    }
 
     //Card Static Top
     &--static::before{
@@ -29,7 +67,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        background-color: aqua;
+        background-color: v.$background-top-card;
         overflow: hidden ;
 
     }
@@ -43,14 +81,14 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        background-color: chocolate;
+        background-color: v.$background-bottom-card;
         overflow: hidden ;
 
     }
     //Card Dynamic Back
     &--dynamic::before{
         position: absolute;
-        background-color: yellow;
+        background-color: v.$background-bottom-card;
         width: 100%;
         height: 100%;
         bottom: -100%;
@@ -59,6 +97,7 @@
         align-items: flex-start;
         justify-content: center;
         overflow: hidden;
+        
 
         transform: rotateX(180deg);
         transform-origin: top;
@@ -71,7 +110,7 @@
         width: 100%;
         height: 100%;
         content: attr(data-before);
-        background-color: slateblue;
+        background-color: v.$background-top-card;
         display: flex;
         align-items: flex-end;
         justify-content: center;

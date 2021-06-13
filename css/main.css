@@ -7,14 +7,15 @@
 }
 
 .card {
-  background-color: red;
-  width: 7.5rem;
+  perspective: 3.125rem;
+  width: 8.125rem;
   height: 7.5rem;
   position: relative;
   color: #fb6087;
-  font-size: 5rem;
+  font-size: 4.2rem;
   font-weight: 700;
-  perspective: 31.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem #191a24;
 }
 
 .part-card {
@@ -22,6 +23,16 @@
   width: 100%;
   height: 50%;
   line-height: 0;
+  perspective: 500px;
+}
+.part-card--static::before, .part-card--dynamic::after {
+  background: radial-gradient(0.8rem circle at 0 100%, #141419 50%, transparent 50%), radial-gradient(0.8rem circle at 100% 100%, #141419 50%, transparent 50.2%);
+  border-bottom: 1px solid #191a24;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.part-card--static::after, .part-card--dynamic::before {
+  background: radial-gradient(0.8rem circle at 0 0, #141419 50%, transparent 50%), radial-gradient(0.8rem circle at 100% 0, #141419 50%, transparent 50%);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 .part-card--static::before {
   content: attr(data-after);
@@ -30,7 +41,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: aqua;
+  background-color: #2a2b41;
   overflow: hidden;
 }
 .part-card--static::after {
@@ -40,12 +51,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: chocolate;
+  background-color: #343650;
   overflow: hidden;
 }
 .part-card--dynamic::before {
   position: absolute;
-  background-color: yellow;
+  background-color: #343650;
   width: 100%;
   height: 100%;
   bottom: -100%;
@@ -64,7 +75,7 @@
   width: 100%;
   height: 100%;
   content: attr(data-before);
-  background-color: slateblue;
+  background-color: #2a2b41;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -93,7 +104,7 @@
 
 .main-container {
   width: 100%;
-  height: calc(100% - 197px);
+  height: calc(100% - 12.3125rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,6 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 .countdown__item {
   display: flex;
@@ -128,6 +140,30 @@
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.3rem;
+}
+
+.footer {
+  height: 12.3125rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.social-icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+}
+
+.social-icon {
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+}
+.social-icon:hover path {
+  fill: #fb6087;
 }
 
 /*# sourceMappingURL=main.css.map */
