@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/main.css">
   
-  <title>Frontend Mentor | Launch countdown timer</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Frontend Mentor | Launch countdown timer</title>
 </head>
 <body>
+  <section class="site">
+    <div class="main-container">
 
-  We're launching soon
+      <h1 class="title-site">We're launching soon</h1>
 
-  Days
-  Hours
-  Minutes
-  Seconds
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      <div class="countdown">
+        <div class="countdown__item">
+          <div class="card">
+            <div class="part-card part-card--static" data-before="10" data-after="09"></div>
+            <div class="part-card part-card--dynamic" data-before="10" data-after="09"></div>
+          </div>
+          <h2 class="card-title">Days</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+  </section>
+
 </body>
 </html>

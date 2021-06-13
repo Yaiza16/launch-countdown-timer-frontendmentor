@@ -1,0 +1,49 @@
+@use '../utilities/variables' as v;
+@use  '../utilities/functions' as f;
+
+.site{
+    width: 100vw;
+    height: 100vh;
+    background: url(/images/pattern-hills.svg) no-repeat bottom, url(/images/bg-stars.svg), linear-gradient(to bottom, v.$background-top-site, v.$background-bottom-site);
+}
+
+.main-container{
+    width: 100%;
+    height: calc(100% - 197px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.title-site{
+    color: v.$title-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: f.toRem(16);
+    letter-spacing: .5rem;
+}
+
+.countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.card-title{
+    color: v.$title-card-color;
+    text-transform: uppercase;
+    font-size: f.toRem(14);
+    font-weight: 700;
+    letter-spacing: .3rem;
+}
+

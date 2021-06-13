@@ -1,0 +1,98 @@
+@use '../utilities/variables' as v;
+@use  '../utilities/functions' as f;
+
+.card{
+    background-color: red;
+    width: f.toRem(120);
+    height: f.toRem(120);
+    position: relative;
+    color: v.$numbers-color;
+    font-size: 5rem;
+    font-weight: 700;
+
+    perspective: f.toRem(500);
+    // transform-style: preserve-3d;
+}
+
+.part-card{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    line-height: 0;
+    
+
+    //Card Static Top
+    &--static::before{
+        content: attr(data-after);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-color: aqua;
+        overflow: hidden ;
+
+    }
+
+
+    //Card Static bottom
+    &--static::after{
+        content: attr(data-before);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: chocolate;
+        overflow: hidden ;
+
+    }
+    //Card Dynamic Back
+    &--dynamic::before{
+        position: absolute;
+        background-color: yellow;
+        width: 100%;
+        height: 100%;
+        bottom: -100%;
+        content: attr(data-after);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        overflow: hidden;
+
+        transform: rotateX(180deg);
+        transform-origin: top;
+        animation: flip-back 0.9s ease-in-out infinite;
+    }
+    //Card Dynamic Front
+    &--dynamic::after{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: attr(data-before);
+        background-color: slateblue;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+
+        transform: rotateX(0deg);
+        transform-origin: bottom;
+        backface-visibility: hidden;
+        animation: flip-front 0.9s ease-in-out infinite;
+    }
+}
+
+@keyframes flip-front {
+    to {
+        transform: rotateX(-180deg);
+    }
+}
+
+@keyframes flip-back {
+    to {
+        transform: rotateX(0);
+        ;
+    }
+}
