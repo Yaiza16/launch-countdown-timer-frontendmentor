@@ -17,6 +17,15 @@
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem #191a24;
 }
+.card.animated .part-card--dynamic::before {
+  animation: flip-back 0.7s ease forwards;
+}
+.card.animated .part-card--dynamic::after {
+  transform: rotateX(0deg);
+  transform-origin: bottom;
+  backface-visibility: hidden;
+  animation: flip-front 0.7s ease forwards;
+}
 
 .part-card {
   position: absolute;
@@ -67,7 +76,6 @@
   overflow: hidden;
   transform: rotateX(180deg);
   transform-origin: top;
-  animation: flip-back 0.9s ease-in-out infinite;
 }
 .part-card--dynamic::after {
   position: absolute;
@@ -80,10 +88,6 @@
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  transform: rotateX(0deg);
-  transform-origin: bottom;
-  backface-visibility: hidden;
-  animation: flip-front 0.9s ease-in-out infinite;
 }
 
 @keyframes flip-front {

@@ -14,28 +14,18 @@
 
     box-shadow: 0 .5rem v.$background-top-site;
 
-    // &::before{
-    //     content: "";
-    //     position: absolute;
-    //     width: .4rem;
-    //     height: .8rem;
-    //     background-color: black;
-    //     border-radius: 0 .4rem .4rem 0;
-    //     top: calc(50% - .4rem);
-    //     z-index: 20;
-    // }
+    &.animated{
+        & .part-card--dynamic::before{
+            animation: flip-back .7s ease forwards;
+        }
 
-    // &::after{
-    //     content: "";
-    //     position: absolute;
-    //     width: .4rem;
-    //     height: .8rem;
-    //     background-color: black;
-    //     border-radius: .4rem 0 0 .4rem;
-    //     top: calc(50% - .4rem);
-    //     right: 0;
-    //     z-index: 10;
-    // }
+        & .part-card--dynamic::after{
+            transform: rotateX(0deg);
+            transform-origin: bottom;
+            backface-visibility: hidden;
+            animation: flip-front .7s ease forwards;
+        }
+    }
 }
 
 .part-card{
@@ -97,11 +87,9 @@
         align-items: flex-start;
         justify-content: center;
         overflow: hidden;
-        
 
         transform: rotateX(180deg);
         transform-origin: top;
-        animation: flip-back 0.9s ease-in-out infinite;
     }
     //Card Dynamic Front
     &--dynamic::after{
@@ -115,11 +103,6 @@
         align-items: flex-end;
         justify-content: center;
         overflow: hidden;
-
-        transform: rotateX(0deg);
-        transform-origin: bottom;
-        backface-visibility: hidden;
-        animation: flip-front 0.9s ease-in-out infinite;
     }
 }
 
