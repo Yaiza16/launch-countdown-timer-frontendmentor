@@ -1,5 +1,6 @@
 @use '../utilities/variables' as v;
 @use  '../utilities/functions' as f;
+@use '../utilities/mixins' as m;
 
 .card{
     perspective: f.toRem(50);
@@ -34,6 +35,11 @@
     height: 50%;
     line-height: 0;
     perspective: 500px;
+    
+    &::before,
+    &::after{
+        font-size: 4.5rem;
+    }
     
 
     &--static::before,

@@ -1,3 +1,5 @@
+@use  'functions' as f;
+
 $title-color: hsl(0, 0%, 100%);
 $title-card-color: hsl(237, 18%, 59%);
 
@@ -7,5 +9,10 @@ $background-top-card: hsl(237, 21%, 21%);
 $background-bottom-card: hsl(236, 21%, 26%);
 
 $numbers-color: hsl(345, 95%, 68%);
+
+$media-query: (
+    'large': 700px,
+    'medium': 520px
+);
 
 

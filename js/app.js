@@ -5,7 +5,7 @@ const secondElement = document.getElementById('seconds')
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    countdown(100000)
+    countdown(1209600)
 })
 
 const countdown = totalSeconds =>{
@@ -22,14 +22,28 @@ const countdown = totalSeconds =>{
     let nextMinutes;
     let nextSeconds;
 
-    
+    calculateTime()
+    setInitialValues(actualDays, actualHours, actualMinutes, actualSeconds)
+    startCountdown()
 
-    const startCountdown = setInterval(() =>{
-        calculateTime()
 
-        actualTime--
-        nextTime--
-    },1000)
+    function startCountdown(){
+        setInterval(() =>{
+            if (actualTime == 0){
+                return;
+            }else{
+                calculateTime()
+                actualTime--
+                nextTime--
+            }
+        },1000)
+    }
+
+    if (actualTime == 0){
+        clearInterval(startCountdown)
+        console.log('clean')
+    }
+        
 
     function calculateTime(){
         const days = Math.floor(actualTime / 60 / 60 /24);
@@ -41,7 +55,6 @@ const countdown = totalSeconds =>{
         actualHours = hours<10?`0${hours}`:hours;
         actualMinutes = minutes<10?`0${minutes}`:minutes;
         actualSeconds = seconds<10?`0${seconds}`:seconds;
-        setValues(actualDays, actualHours, actualMinutes, actualSeconds)
 
         const nxdays = Math.floor(nextTime / 60 / 60 /24);
         const nxhours = Math.floor((nextTime % (60*60*24) / 60 /60));
@@ -53,12 +66,10 @@ const countdown = totalSeconds =>{
         nextMinutes = nxminutes<10?`0${nxminutes}`:nxminutes;
         nextSeconds = nxseconds<10?`0${nxseconds}`:nxseconds;
 
-
-        console.log(actualSeconds)
-        console.log(nextSeconds)
-
+        
         selectedFipCards()
     }
+
 
     function selectedFipCards(){
         if (actualDays!==nextDays){
@@ -74,20 +85,20 @@ const countdown = totalSeconds =>{
         }
 
         if (actualSeconds!==nextSeconds){
-            console.log('hol')
             flipCards(nextSeconds, secondElement)
         }
     }
 
+
     function flipCards(next, element){
         element.classList.add('animated')
         let secondsCardParts = element.querySelectorAll('.part-card')
-        console.log('hola')
 
         secondsCardParts.forEach(part =>{
             part.dataset.after = next
         })
 
+        //Dataset changes when transition is over
         setTimeout(function(){
             secondsCardParts.forEach(part =>{
                 part.dataset.before = next
@@ -100,7 +111,8 @@ const countdown = totalSeconds =>{
     }
 }
 
-function setValues(daysValue, hoursValue, minutesValue, secondsValue){
+
+function setInitialValues(daysValue, hoursValue, minutesValue, secondsValue){
     dayElement.querySelectorAll('.part-card').forEach(el =>{
         el.dataset.before = daysValue
         el.dataset.after = daysValue

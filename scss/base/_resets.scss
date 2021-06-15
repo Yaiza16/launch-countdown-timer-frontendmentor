@@ -1,3 +1,5 @@
+@use '../utilities/mixins' as m;
+
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap');
 
 
@@ -6,4 +8,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Red Hat Text', sans-serif;
+    font-size: 16px;
+
+    @include m.mq('large'){
+        font-size: 12px;
+    }
+
+    @include m.mq('medium'){
+        font-size: 8px;
+    }
+
 }
+

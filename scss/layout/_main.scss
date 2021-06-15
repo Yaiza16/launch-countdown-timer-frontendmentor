@@ -1,5 +1,6 @@
 @use '../utilities/variables' as v;
 @use  '../utilities/functions' as f;
+@use '../utilities/mixins' as m;
 
 .site{
     width: 100vw;
@@ -21,8 +22,18 @@
     color: v.$title-color;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: f.toRem(16);
+    font-size: 1.2rem;
     letter-spacing: .5rem;
+    max-width: 80%;
+    text-align: center;
+
+    @include m.mq('large'){
+        font-size: f.toRem(25);
+    }
+
+    @include m.mq('medium'){
+        font-size: f.toRem(35);
+    }
 }
 
 .countdown{

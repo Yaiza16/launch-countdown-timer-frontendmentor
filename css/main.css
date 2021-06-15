@@ -4,6 +4,17 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Red Hat Text", sans-serif;
+  font-size: 16px;
+}
+@media only screen and (max-width: 700px) {
+  *, *::before, *::after {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 520px) {
+  *, *::before, *::after {
+    font-size: 8px;
+  }
 }
 
 .card {
@@ -33,6 +44,9 @@
   height: 50%;
   line-height: 0;
   perspective: 500px;
+}
+.part-card::before, .part-card::after {
+  font-size: 4.5rem;
 }
 .part-card--static::before, .part-card--dynamic::after {
   background: radial-gradient(0.8rem circle at 0 100%, #141419 50%, transparent 50%), radial-gradient(0.8rem circle at 100% 100%, #141419 50%, transparent 50.2%);
@@ -120,8 +134,20 @@
   color: white;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.5rem;
+  max-width: 80%;
+  text-align: center;
+}
+@media only screen and (max-width: 700px) {
+  .title-site {
+    font-size: 1.5625rem;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .title-site {
+    font-size: 2.1875rem;
+  }
 }
 
 .countdown {
