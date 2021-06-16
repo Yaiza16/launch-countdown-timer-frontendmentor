@@ -92,21 +92,21 @@ const countdown = totalSeconds =>{
 
     function flipCards(next, element){
         element.classList.add('animated')
-        let secondsCardParts = element.querySelectorAll('.part-card')
+        let elementCardParts = element.querySelectorAll('.part-card')
 
-        secondsCardParts.forEach(part =>{
+        elementCardParts.forEach(part =>{
             part.dataset.after = next
         })
 
         //Dataset changes when transition is over
         setTimeout(function(){
-            secondsCardParts.forEach(part =>{
+            elementCardParts.forEach(part =>{
                 part.dataset.before = next
             })
         }, 700)
 
         setTimeout(function(){
-            secondElement.classList.remove('animated')
+            element.classList.remove('animated')
         },900)
     }
 }
