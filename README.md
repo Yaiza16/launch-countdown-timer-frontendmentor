@@ -12,7 +12,7 @@ Thanks for checking out this front-end coding challenge.
 
 ## Result
 - Solution URL: [Frontendmentor]()
-- Live Site URL: [Launch Countdown timer](https://vibrant-borg-bbba32.netlify.app/)
+- Live Site URL: [Launch Countdown timer](https://launch-countdown-fm.netlify.app/)
 
 
 ## The challenge
